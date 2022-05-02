@@ -1,0 +1,25 @@
+# vim related
+*.swp
+tags
+
+# python related
+*.pyc
+__pycache__
+.mypy_cache
+*.egg-info
+.tox
+.python-version
+
+# cpp related
+a.out
+bin
+bin_*
+_build
+core
+*.o
+*.so
+.clangd
+
+# specific patterns to ignore :
+*GITIGNORE*
+*NOGIT*

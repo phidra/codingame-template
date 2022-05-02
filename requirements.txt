@@ -1,0 +1,11 @@
+pre-commit
+# pre-commit will install the checkers that it needs
+
+# for IDE or manual use :
+black
+flake8
+mypy
+
+# if needed :
+pytest
+tox
