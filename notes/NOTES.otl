@@ -1,0 +1,16 @@
+WHAT = ce fichier est destiné à contenir les notes au fil de l'eau, catégorisées (ne pas hésiter à splitter en plusieurs fichiers si besoin)
+
+TOUT DE SUITE :
+	WHAT = ce sur quoi je bosse actuellement
+
+JOURNAL (plus récent en haut) :
+	WHAT = quand je veux garder une trace de ce que j'ai fait, de pourquoi je l'ai fait, ou d'explications
+
+FUTURES IDÉES :
+	WHAT = des idées en vrac pour le futur (à écluser / trier / prioriser régulièrement)
+
+RULES :
+	WHAT = notes sur ma compréhension ou mon interprétation des règles
+
+META :
+	WHAT = notes sur le concours lui-même ou sur de futures participations
