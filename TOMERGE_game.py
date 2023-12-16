@@ -36,10 +36,8 @@ class Game:
             board.enemy_health, board.enemy_mana = [int(j) for j in input().split()]
 
     def print_actions(self, board: Board) -> None:
-        for hero in sorted(board.my_heroes.values(), key=lambda hero: hero.id_):
-            if hero.action is None:
-                fatal(f"No action for {hero}")
-            print(hero.action.as_str())
+        print("TODO")
+        fatal("fatal")
 
     def main_loop(self) -> None:
         TURN_TIME_WARNING = 45
