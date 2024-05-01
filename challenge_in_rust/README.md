@@ -1,5 +1,13 @@
 **TODO** = extraire un template à partir de [mon code pour le fall challenge 2023](https://github.com/phidra/codingame-fall-challenge-2023).
 
+Notes sur le refacto de ce code :
+
+- déjà en préambule, le challenge est terminé, mais le jeu sur codingame reste ouvert : je peux toujours faire jouer mon bot
+- une fois que j'aurais un cg-brutaltester utilisable (pour être sûr que mes refactos sont iso), je peux revenir modifier mon code rust :
+    - mettre au propre
+    - essayer de faire des trucs plus rust-friendly : limiter les clones ?
+    - essayer de meilleures simulations
+
 Notes sur un minifier rust :
 
 - ça a l'air d'être assez compliqué d'accéder à l'AST, il n'y a pas de façon standard+simple de faire
@@ -13,5 +21,4 @@ Notes sur un minifier rust :
     - https://crates.io/crates/comment-strip
 - ce qu'il me faudrait in fine, c'est un merger/minifier en one-shot (et qui peut prendre un fichier d'exclusion)
 - forker le cargo-merger ?
-
-
+    - ou plutôt, copier-coller le code de cargo-merge ? (vu que le code-source n'existe plus)

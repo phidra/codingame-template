@@ -129,3 +129,9 @@ Cf. [le README en rust](./challenge_in_rust/README.md).
 - Note a posteriori : dans le challenge, il y avait un pré-requis indispensable et pas si facile = éviter les monstres.
     -c'était presque binaire : soit tu sais éviter les uglies et tu peux faire le challenge en avançant dans les leagues, soit tu ne sais pas et tu resteras bloqué dans une des premières leagues
     -je généralise : si dans un challenge, il y a une **skill "barrière"** comme celle-ci, il faut l'adresser rapidement dans le challenge
+
+# cg-brutaltester
+
+J'avais commencé à utiliser [cg-brutaltester](https://github.com/dreignier/cg-brutaltester) = un tool java pour pouvoir faire jouer ses IA en local. Mes notes sont [ici](https://github.com/phidra/notes/blob/main/structured/competitive_programming/codingame_brutaltester.md), et j'ai des notes de reprise dans mon frigo.
+
+Ça me permettrait plein de choses, et notamment de faire des refactos en étant sûr d'être iso !
