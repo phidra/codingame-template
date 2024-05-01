@@ -14,8 +14,6 @@ Il contient du code réutilisable en python ou en rust, et des notes/conseils.
 * [Faire un challenge en python](#faire-un-challenge-en-python)
 * [Faire un challenge en rust](#faire-un-challenge-en-rust)
 * [Notes et conseils](#notes-et-conseils)
-* [Notes et conseils sur le code](#notes-et-conseils-sur-le-code)
-* [Notes et conseils indépendants du code](#notes-et-conseils-indépendants-du-code)
    * [Lors des deux premiers challenges en python](#lors-des-deux-premiers-challenges-en-python)
    * [Lors du troisième challenge en rust](#lors-du-troisième-challenge-en-rust)
 
