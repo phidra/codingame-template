@@ -72,6 +72,7 @@ Cf. [le README en rust](./challenge_in_rust/README.md).
     - je peux également faire jouer mon IA actuelle contre mon IA précédente pour voir si elle est meilleure
 - éviter de ne jouer que contre le boss de la league actuelle, sous peine d'overfitter ma stratégie à ses mouvements
 - bien lire régulièrement les règles... ET LES LIRE ATTENTIVEMENT, en recherchant la p'tite bête ! (dans les deux challenges, j'ai "découvert" des spécificité des règles trop tardivement) (EDIT : un homme averti en vaut deux : en appliquant précautionneusement ce conseil, je n'ai rien "découvert" tardivement sur le troisième challenge `\o/` )
+- poser une journée de congé vers la fin du jeu ? :-P
 
 ## Lors du troisième challenge en rust
 
@@ -79,19 +80,26 @@ Cf. [le README en rust](./challenge_in_rust/README.md).
 - Ce qui a bien marché :
     - ménage réguliers dans le notes pour distinguer les sujets
     - sortir de mes notes principales tout ce qui n'est pas en rapport avec des idées d'implémentation
-        - (j'aurais même dû sortir dans des notes secondaires les notes de futures participations
+        - (j'aurais même dû sortir dans des notes secondaires les notes de futures participations)
     - noter les sujets de perfs plutôt que les faire (vu qu'au final, j'ai eu besoin d'en faire... aucun)
+        - EDIT : a posteriori, j'ai un avis encore plus radical : je n'ai JAMAIS besoin de faire des optimisations (qui sont donc toutes trop early) à la seule exception de si je fais des simulations (car dans ce cas, l'explosion combinatoire plombe les perfs)
     - regarder des bons bots jouer pour avoir des bonnes idées (c'est là où j'ai vu qu'on pouvait contourner les uglies)
-- Attention : les irritants reviennent me hanter en fin de challenge...
+- Attention : les irritants et erreurs de design reviennent me hanter en fin de challenge...
     - du coup, certains refactos non-seulement clarifient le code, mais en plus me font gagner du temps (et éviter des bugs), tout en réduisant la taille du code
     - la difficulté est de trancher entre le bon et le mauvais refacto (mauvais = qui n'en vaut pas la peine + fait trop tôt / bon = qui fait gagner du temps au final)
+    - il faut trouver l'équilibre entre :
+        - coder correctement trop tard (et se retrouver obligé de faire des refactos quand tout s'accélère la dernière semaine)
+        - coder correctement trop tôt (et perdre du temps à faire du code clean, mais en se trompant de design car ma connaissance du jeu, de mes besoins, et des bonnes abstractions est insuffisante)
 - Taille du code : j'ai perdu beaucoup de temps du challenge à améliorer incrémentalement la minification de code...
-    - Avec ma façon de modéliser les choses, la taille du code devient vraiment une limitation, ça s'est vérifié à chaque challente
+    - Avec ma façon de modéliser les choses, la taille du code devient vraiment une limitation, ça s'est vérifié à chaque challenge
     - Normalement, avec la dernière version de mon minifier rust, ça devrait passer crème même avec un gros code
     - C'est un peu custom car je hardcode des noms de variables à ne pas renommer
     - Je pourrais le généraliser (mais je pense que le jeu n'en vaut pas la chandelle) :
         1. en ne renommant pas les variables (les espaces et commentaires font déjà gagner du temps)
         2. en renommant les variables de plus de 10 caractères, je suis à peu près certain de ne pas interférer avec la stdlib.
+    - **attention** : ne pas tenir compte de la limite officielle des 100k caractères car l'IDE refuse parfois des codes de moins de 100k caractères (et ça évolue même en cours de challenge !) : viser plutôt 85k
+- Coder le moteur du jeu servira probablement → à faire tôt, avec des inputs simples.
+    - dans la même veine : passer un peu de temps à **analyser** le moteur du jeu pour en comprendre les mécaniques fines est important
 - Pour la prochaine fois, si je code le moteur du jeu, considérer que la boucle principale suit une approche fonctionnelle (plutôt que de considérer qu'elle mute un état = l'état du jeu) :
     - prend les paramètres du jeu en entrée (ici : drônes, actions, monsters, fishes)
     - produit d'autres paramètres de jeu en entrée (ici : drônes, monsters, fishes)
@@ -112,7 +120,7 @@ Cf. [le README en rust](./challenge_in_rust/README.md).
 - Ce qu'il faut BEAUCOUP faire = regarder des matchs pour analyser les défaites de mon bot contre les autres bots. Attention : il faut distinguer deux choses :
     - regarder un match en particulier pour analyser UN comportement en particulier, et le débugger ou l'améliorer
     - regarder toute une série de défaites pour essayer de trouver les points les plus prioritaires à améliorer, voire les classer aussi en fonction de s'ils sont faciles à coder
-- [Cette page](https://meritis.fr/codingame-spring-challenge-2022-les-best-practices-pour-etre-au-top/) donne une bonne idée, à mieux formuler :
+- [Cette page](https://meritis.fr/codingame-spring-challenge-2022-les-best-practices-pour-etre-au-top/) donne une idée intéressante, à mieux formuler :
     > Difficile de garder la motivation encore et toujours jusqu’à la dernière minute malgré les échecs répétitifs et les soirées passées à coder dans le vent. Surtout quand, en parallèle, vous voyez votre classement baisser. Mais il faut garder la tête froide, car il suffit d’une seule bonne idée parmi des dizaines d’échecs pour vous faire gagner énormément de place.
     - NDM : c'est acceptable de "perdre" beaucoup de temps sans gagner de places si c'est pour mettre en oeuvre un "moyen" de mettre en place des stratégies, mais beaucoup moins pour une unique stratégie en particulier au gain incertain.
     - par exemple, c'est intéressant de passer plusieurs jours à développer du code pour être capable d'effrayer les poissons en général, mais pas de passer plusieurs jours à peaufiner le fait d'effrayer les poissons juste pour le début de game
@@ -129,6 +137,10 @@ Cf. [le README en rust](./challenge_in_rust/README.md).
 - Note a posteriori : dans le challenge, il y avait un pré-requis indispensable et pas si facile = éviter les monstres.
     -c'était presque binaire : soit tu sais éviter les uglies et tu peux faire le challenge en avançant dans les leagues, soit tu ne sais pas et tu resteras bloqué dans une des premières leagues
     -je généralise : si dans un challenge, il y a une **skill "barrière"** comme celle-ci, il faut l'adresser rapidement dans le challenge
+- _Good enough_ est le meilleur compromis possible : ne pas hésiter à approximer des cercles par des carrés, à ne pas traiter du mieux possible, etc.
+    - je vais plus loin : comme je ne sais que rarement si une idée est bonne / facile à mettre en œuvre, il FAUT rechercher activement des raccourcis à prendre permettant de tester l'idée
+- Si je veux viser la ligue légendaire, le premier jour de l'ouverture est mon meilleur créneau.
+- Les premiers jours du challenge, me contenter d'avoir un board correct.
 
 # cg-brutaltester
 
